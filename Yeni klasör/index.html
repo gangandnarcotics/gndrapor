@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://www.upload.ee/image/16676668/avatar_12095.jpg" type="image/x-icon" />
+    <title>Gang And Narcotics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333; 
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-y: auto; 
+        }
+        .login-container {
+            position: fixed; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.8); 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            z-index: 2; 
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group input, .form-group select {
+            width: 80%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #054daa;
+        }
+        .btn {
+            background-color: #054daa;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #05326d;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginPage" class="login-container">
+        <div class="login-box">
+            <img width="200px" src="https://www.upload.ee/image/16676668/avatar_12095.jpg" alt="">
+            <h3>Gang And Narcotics Division</h3>
+            <div class="form-group">
+                <label for="fullname">Hoş geldiniz, lütfen giriş yapın.</label>
+                <input type="text" id="fullname" placeholder="Ad Soyad" style="text-align: center;">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Şifre" style="text-align: center;">
+            </div>
+            <div class="form-group" style="margin-top: 2px;">
+                <select id="selection">
+                    <option value="OK">Olay ve Kazalar</option>
+                    <option value="SS">Siber Suçlar</option>
+                    <option value="SK">Sorgu Kayıtları</option>
+                    <option value="IR">İfade Raporları</option>
+                    <option value="GN">GangNET</option>
+                    <option value="RM">RiskMap</option>
+                </select>
+            </div>
+            <button class="btn" onclick="validateCharacter()">Giriş Yap</button>
+            <div id="error-message" class="error-message"></div>
+        </div>
+    </div>
+    <script>
+        function validateCharacter() {
+            const fullname = document.getElementById("fullname").value.trim();
+            const password = document.getElementById("password").value;
+            const selectedOption = document.getElementById("selection").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (fullname === "") {
+                errorMessage.textContent = "Lütfen adınızı ve soyadınızı girin!";
+                return;
+            }
+            
+            if (password !== "GND123") {
+                errorMessage.textContent = "Şifre yanlış!";
+                return;
+            }
+
+            errorMessage.textContent = "";
+
+            switch (selectedOption) {
+                case "OK": window.location.href = "ok.html"; break;
+                case "SS": window.location.href = "ss.html"; break;
+                case "SK": window.location.href = "sk.html"; break;
+                case "IR": window.location.href = "ir.html"; break;
+                case "GN": window.location.href = "gn.html"; break;
+                case "RM": window.location.href = "rm.html"; break;
+                default: alert(selectedOption + " formu henüz mevcut değil.");
+            }
+        }
+    </script>
+</body>
+</html>
